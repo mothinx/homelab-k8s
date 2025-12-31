@@ -3,7 +3,7 @@ kind: Namespace
 metadata:
   name: pihole
 ---
-# 1. Stockage Persistant (Longhorn)
+# Longhorn
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -28,7 +28,7 @@ spec:
     requests:
       storage: 500Mi
 ---
-# 2. L'application Pi-hole
+# App
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -54,9 +54,9 @@ spec:
           value: "Europe/Paris"
         - name: WEBPASSWORD
           valueFrom:
-	    secretKeyRef:
+            secretKeyRef:
               name: pihole-secret
-	      key: password
+              key: password
         ports:
         - containerPort: 53
           name: dns
