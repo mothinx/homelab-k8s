@@ -101,6 +101,10 @@ spec:
       targetPort: 53
       protocol: UDP
       name: dns-udp
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: web-admin
 ---
 # 4. Service Web (Interne pour Traefik)
 apiVersion: v1
